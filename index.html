@@ -117,6 +117,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .fg input,.fg textarea{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.78rem 1rem;color:var(--text);font-family:'Syne',sans-serif;font-size:.9rem;outline:none;transition:border-color .25s,box-shadow .25s;resize:vertical}
 .fg textarea{min-height:130px}
 .fg input:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,207,255,.1)}
+.form-toast{display:none;font-family:'Space Mono',monospace;font-size:.72rem;padding:.75rem 1rem;border-radius:4px;margin-top:.5rem;letter-spacing:.05em}
+.form-toast.success{background:rgba(0,255,163,.08);border:1px solid rgba(0,255,163,.25);color:var(--accent3)}
+.form-toast.error{background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.25);color:#ff8080}
 footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 footer b{color:var(--accent);font-weight:400}
 .reveal{opacity:1;transform:none}
@@ -267,16 +270,14 @@ footer b{color:var(--accent);font-weight:400}
       <div class="proj-stack"><span class="proj-badge">AWS S3</span><span class="proj-badge">CloudFront</span><span class="proj-badge">Lambda (Python)</span><span class="proj-badge">DynamoDB</span><span class="proj-badge">API Gateway</span></div>
       <div class="proj-links"><a href="https://github.com/Ifhy1/cloud-v2-dynamic" class="proj-link" target="_blank">&#8599; GitHub</a><a href="https://dlnrrz6o74scn.cloudfront.net/v2/index.html" class="proj-link" target="_blank">&#11041; Live Demo</a></div>
     </div>
-
-   <div class="proj reveal">
-  <div class="proj-shine"></div>
-  <div class="proj-eyebrow">&#9889; Serverless &middot; AWS Lambda</div>
-  <div class="proj-title">Serverless URL Shortener</div>
-  <div class="proj-desc">A fully serverless URL shortener deployed on AWS. Users submit a long URL and receive a short link that redirects to the original. Built with two Lambda functions, API Gateway routing, and DynamoDB for storage with automatic link expiry via TTL. Infrastructure defined entirely as code using AWS SAM.</div>
-  <div class="proj-stack"><span class="proj-badge">AWS Lambda</span><span class="proj-badge">API Gateway</span><span class="proj-badge">DynamoDB</span><span class="proj-badge">AWS SAM</span><span class="proj-badge">Node.js</span><span class="proj-badge">IAM</span><span class="proj-badge">us-east-1</span></div>
-  <div class="proj-links"><a href="https://github.com/Ifhy1/url-shortener" class="proj-link" target="_blank">&#8599; GitHub</a><a href="https://dy7kgks4gpwf7.cloudfront.net" class="proj-link" target="_blank">&#11041; Live Demo</a></div>
-   </div>
-
+    <div class="proj reveal">
+      <div class="proj-shine"></div>
+      <div class="proj-eyebrow">&#9889; Serverless &middot; AWS Lambda</div>
+      <div class="proj-title">Serverless URL Shortener</div>
+      <div class="proj-desc">A fully serverless URL shortener deployed on AWS. Users submit a long URL and receive a short link that redirects to the original. Built with two Lambda functions, API Gateway routing, and DynamoDB for storage with automatic link expiry via TTL. Infrastructure defined entirely as code using AWS SAM.</div>
+      <div class="proj-stack"><span class="proj-badge">AWS Lambda</span><span class="proj-badge">API Gateway</span><span class="proj-badge">DynamoDB</span><span class="proj-badge">AWS SAM</span><span class="proj-badge">Node.js</span><span class="proj-badge">IAM</span><span class="proj-badge">us-east-1</span></div>
+      <div class="proj-links"><a href="https://github.com/Ifhy1/url-shortener" class="proj-link" target="_blank">&#8599; GitHub</a><a href="https://dy7kgks4gpwf7.cloudfront.net" class="proj-link" target="_blank">&#11041; Live Demo</a></div>
+    </div>
     <div class="proj reveal">
       <div class="proj-shine"></div>
       <div class="proj-eyebrow">&#127760; Cloud Hosting &middot; Static Site</div>
@@ -290,7 +291,7 @@ footer b{color:var(--accent);font-weight:400}
 <section id="certifications" class="section">
   <div class="sec-head reveal"><span class="sec-num">04.</span><h2 class="sec-title">Certifications</h2><div class="sec-rule"></div></div>
   <div class="certs-grid">
-    <div class="cert reveal"><div class="cert-bar"></div><div class="cert-icon">&#127medal;</div><div><div class="cert-name">AWS Certified Cloud Practitioner</div><div class="cert-org">Amazon Web Services</div><div class="cert-status s-progress">&#9203; In Progress</div></div></div>
+    <div class="cert reveal"><div class="cert-bar"></div><div class="cert-icon">🏅</div><div><div class="cert-name">AWS Certified Cloud Practitioner</div><div class="cert-org">Amazon Web Services</div><div class="cert-status s-progress">&#9203; In Progress</div></div></div>
     <div class="cert reveal"><div class="cert-bar"></div><div class="cert-icon">&#9729;&#65039;</div><div><div class="cert-name">Diploma in Cloud Engineering</div><div class="cert-org">Current Programme</div><div class="cert-status s-progress">&#9203; In Progress</div></div></div>
     <div class="cert reveal"><div class="cert-bar"></div><div class="cert-icon">&#127891;</div><div><div class="cert-name">BSc Computer Science</div><div class="cert-org">University of the People</div><div class="cert-status s-progress">&#9203; In Progress</div></div></div>
     <div class="cert reveal"><div class="cert-bar"></div><div class="cert-icon">&#128311;</div><div><div class="cert-name">Azure Fundamentals (AZ-900)</div><div class="cert-org">Microsoft</div><div class="cert-status s-planned">&#128204; Planned</div></div></div>
@@ -312,10 +313,11 @@ footer b{color:var(--accent);font-weight:400}
       </div>
     </div>
     <div class="cform reveal">
-      <div class="fg"><label>Name</label><input type="text" placeholder="Jane Smith"/></div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="jane@company.com"/></div>
-      <div class="fg"><label>Message</label><textarea placeholder="Tell me about the opportunity or project..."></textarea></div>
-      <button class="btn btn-primary" style="align-self:flex-start" onclick="alert('Message sent! Connect this to Formspree or your backend.')">&#8599; Send Message</button>
+      <div class="fg"><label>Name</label><input type="text" id="fname" placeholder="Jane Smith"/></div>
+      <div class="fg"><label>Email</label><input type="email" id="femail" placeholder="jane@company.com"/></div>
+      <div class="fg"><label>Message</label><textarea id="fmessage" placeholder="Tell me about the opportunity or project..."></textarea></div>
+      <button class="btn btn-primary" id="fsubmit" style="align-self:flex-start" onclick="sendMessage()">&#8599; Send Message</button>
+      <div class="form-toast" id="ftoast"></div>
     </div>
   </div>
 </section>
@@ -337,6 +339,7 @@ footer b{color:var(--accent);font-weight:400}
   resize();init();draw();
   window.addEventListener('resize',()=>{cancelAnimationFrame(raf);resize();init();draw()});
 })();
+
 (function(){
   const phrases=['Cloud Infrastructure Engineer','AWS & Kubernetes Enthusiast','DevOps & CI/CD Practitioner','Infrastructure as Code Advocate','BSc Computer Science'];
   let pi=0,ci=0,del=false,el=document.getElementById('typed');
@@ -348,6 +351,52 @@ footer b{color:var(--accent);font-weight:400}
   }
   tick();
 })();
+
+async function sendMessage() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const message = document.getElementById('fmessage').value.trim();
+  const btn = document.getElementById('fsubmit');
+  const toast = document.getElementById('ftoast');
+
+  if (!name || !email || !message) {
+    toast.className = 'form-toast error';
+    toast.textContent = '⚠ Please fill in all fields.';
+    toast.style.display = 'block';
+    return;
+  }
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  toast.style.display = 'none';
+
+  try {
+    const res = await fetch('https://formspree.io/f/mzdyjbbd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    if (res.ok) {
+      toast.className = 'form-toast success';
+      toast.textContent = '✓ Message sent! I will get back to you soon.';
+      toast.style.display = 'block';
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('fmessage').value = '';
+    } else {
+      throw new Error('Failed');
+    }
+  } catch {
+    toast.className = 'form-toast error';
+    toast.textContent = '✗ Something went wrong. Please try again or email directly.';
+    toast.style.display = 'block';
+  }
+
+  btn.textContent = '↗ Send Message';
+  btn.disabled = false;
+}
+
 document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mobMenu').classList.add('open'));
 document.getElementById('mobClose').addEventListener('click',()=>document.getElementById('mobMenu').classList.remove('open'));
 document.querySelectorAll('.mob-menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobMenu').classList.remove('open')));
